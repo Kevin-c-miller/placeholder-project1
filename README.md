@@ -5,12 +5,11 @@
 The name of your project.
 
 ## Project Description
-
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+A place to search NBA players & teams and get relevant information about them (photo, position, stats, height, weight, team, conference, division)
 
 ## API and Data Sample
 
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
+<img src="./assets/api-prj1.png" />
 
 ## Wireframes
 
@@ -28,6 +27,7 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Allow user to choose favorites 
 
 #### PostMVP  
+
 *These are examples only. Replace with your own Post-MVP features.*
 
 - Add second API
