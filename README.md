@@ -1,5 +1,3 @@
-# placeholder-project1
-
 # Project Overview
 
 ## Project Name
