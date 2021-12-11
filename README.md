@@ -44,7 +44,7 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 | Day       | Deliverable                                        | Status     |
 | --------- | -------------------------------------------------- | ---------- |
-| Dec 10-12 | Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete |
+| Dec 10-12 | Prompt / Wireframes / Priority Matrix / Timeframes | Complete   |
 | Dec 13    | Project Approval                                   | Incomplete |
 | Dec 13    | Core Application Structure (HTML, CSS, etc.)       | Incomplete |
 | Dec 14    | Pseudocode / actual code                           | Incomplete |
