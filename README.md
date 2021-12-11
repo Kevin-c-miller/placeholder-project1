@@ -24,23 +24,17 @@ This second image will be what the page looks like when the results of the user 
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP. Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.
-
 #### MVP
 
-_These are examples only. Replace with your own MVP features._
-
 - Find and use external api
-- Get back infomration on pro basketball players and teams, including headshot, stats, team, position, bio.
+- Get back information on pro basketball players and teams, including headshot, stats, team, position, bio.
 - Render player/team data on page based on what the user searched.
 
 #### PostMVP
 
-_These are examples only. Replace with your own Post-MVP features._
-
 - Add a favorites button so users can keep track of their favorite players/team.
 - Use local storage to save user favorites
-- Add anotehr API for news around the league, schedule, box scores
+- Add another API for news around the league, schedule, standings.
 
 ## Project Schedule
 
@@ -60,7 +54,7 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. Link this image in a similar manner to your wireframes
+<img src= "./assets/proj1_priorityMatrix.png" alt ="image of priorty matrix for project" />
 
 ## Timeframes
 
@@ -68,11 +62,25 @@ Tell us how long you anticipate spending on each area of development. Be sure to
 
 Time frames are also key in the development cycle. You have limited time to code all phases of the game. Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
-| Component        | Priority | Estimated Time | Time Invested | Actual Time |
-| ---------------- | :------: | :------------: | :-----------: | :---------: |
-| Adding Form      |    H     |      3hrs      |    3.5hrs     |   3.5hrs    |
-| Working with API |    H     |      3hrs      |    2.5hrs     |   2.5hrs    |
-| Total            |    H     |      6hrs      |     5hrs      |    5hrs     |
+| Component                                    | Priority | Estimated Time | Time Invested | Actual Time |
+| -------------------------------------------- | :------: | :------------: | :-----------: | :---------: |
+| Set up page with HTML                        |    H     |      2hrs      |      --       |     --      |
+| CSS set up                                   |    H     |      2hrs      |      --       |     --      |
+| JS intial set up (grabbing html elements)    |    H     |      1hrs      |      --       |     --      |
+| Connect API using Axios                      |    H     |      4hrs      |      --       |     --      |
+| Implement JS event handler(s)                |    H     |      3hrs      |      --       |     --      |
+| JS functions - userinput, player info, teams |    H     |      4hrs      |      --       |     --      |
+| Use API to display player info to page       |    H     |      4hrs      |      --       |     --      |
+| Use API to display team rosters              |    H     |      3hrs      |      --       |     --      |
+| Style page using CSS/flex                    |    H     |      4hrs      |      --       |     --      |
+| Implement responsive design                  |    H     |      3hrs      |      --       |     --      |
+| Add/link second html file for PostMVP        |    H     |      1hrs      |      --       |     --      |
+| Add styling finishing touches                |    H     |      3hrs      |      --       |     --      |
+| Link icons/images on page                    |    H     |      1hrs      |      --       |     --      |
+| Debug program                                |    H     |      3hrs      |      --       |     --      |
+| Clean up code                                |    H     |      3hrs      |      --       |     --      |
+| Deploy site                                  |    H     |      1hrs      |      --       |     --      |
+| Total                                        |    H     |     42hrs      |      --       |     --      |
 
 ## Code Snippet
 
