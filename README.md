@@ -2,7 +2,7 @@
 
 ## Project Name
 
-<h3>Pro Basketball Roledex</h3>
+<h3>Pro Basketball Rolodex</h3>
 
 ## Project Description
 
@@ -66,7 +66,7 @@ Time frames are also key in the development cycle. You have limited time to code
 | -------------------------------------------- | :------: | :------------: | :-----------: | :---------: |
 | Set up page with HTML                        |    H     |      2hrs      |      --       |     --      |
 | CSS set up                                   |    H     |      2hrs      |      --       |     --      |
-| JS intial set up (grabbing html elements)    |    H     |      1hrs      |      --       |     --      |
+| JS initial set up (grabbing html elements)   |    H     |      1hrs      |      --       |     --      |
 | Connect API using Axios                      |    H     |      4hrs      |      --       |     --      |
 | Implement JS event handler(s)                |    H     |      3hrs      |      --       |     --      |
 | JS functions - userinput, player info, teams |    H     |      4hrs      |      --       |     --      |
