@@ -119,6 +119,25 @@ section #submit-btn {
   height: 40px;
 }
 
+/* rendered data from user input */
+
+.player-results {
+  display: flex;
+  margin: 30px;
+  padding: 20px;
+}
+
+.player-results .player-bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  margin: 25px auto;
+  padding: auto;
+  border: 3px solid black;
+}
 /* footer */
 
 footer {

@@ -10,10 +10,10 @@ const getPlayerInfo = async (searchInput) => {
   try {
     const url = `${players}?search=${searchInput}`;
     const res = await axios.get(url);
-    const playerNames = res.data;
+    const playerNames = res.data.data;
     console.log(playerNames);
 
-    // renderPlayer(playerNames);
+    renderPlayer(playerNames);
   } catch (error) {
     console.error(error);
   }
@@ -27,9 +27,21 @@ function renderPlayer(playerNames) {
     playerFullName.innerText = `${playerName.first_name} ${playerName.last_name}`;
     playerBio.appendChild(playerFullName);
 
+    let playerTeam = document.createElement('h5');
+    playerTeam.innerText = `Team: ${playerName.team.city} ${playerName.team.name}`;
+    playerBio.appendChild(playerTeam);
+
     let playerPosition = document.createElement('h6');
-    playerPosition.innerText = `Position: ${player.position}`;
+    playerPosition.innerText = `Position: ${playerName.position}`;
     playerBio.appendChild(playerPosition);
+
+    let playerHeight = document.createElement('h6');
+    playerHeight.innerText = `Height: ${playerName.height_feet}ft. ${playerName.height_inches}in.`;
+    playerBio.appendChild(playerHeight);
+
+    let playerWeight = document.createElement('h6');
+    playerWeight.innerText = `Weight: ${playerName.weight_pounds}lbs.`;
+    playerBio.appendChild(playerWeight);
   });
 }
 
