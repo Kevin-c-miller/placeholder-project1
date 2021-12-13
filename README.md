@@ -63,7 +63,7 @@ Tell us how long you anticipate spending on each area of development. Be sure to
 Time frames are also key in the development cycle. You have limited time to code all phases of the game. Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
 | Component                                    | Priority | Estimated Time | Time Invested | Actual Time |
-| -------------------------------------------- | :------: | :------------: | :-----------: | :---------: | --- | --- |
+| -------------------------------------------- | :------: | :------------: | :-----------: | :---------: |
 | HTML set up                                  |    H     |      2hrs      |      --       |     --      |
 | CSS set up                                   |    H     |      2hrs      |      --       |     --      |
 | JS initial set up (grabbing html elements)   |    H     |      1hrs      |      --       |     --      |
@@ -73,7 +73,7 @@ Time frames are also key in the development cycle. You have limited time to code
 | Use API to display player info to page       |    H     |      4hrs      |      --       |     --      |
 | Use API to display team rosters              |    H     |      3hrs      |      --       |     --      |
 | Style page using CSS/flex                    |    H     |      4hrs      |      --       |     --      |
-| Implement responsive design                  |    H     |      3hrs      |      --       |     --      | --  | --  |
+| Implement responsive design                  |    H     |      3hrs      |      --       |     --      |
 | Add styling finishing touches                |    H     |      3hrs      |      --       |     --      |
 | Link icons/images on page                    |    H     |      1hrs      |      --       |     --      |
 | Debug program                                |    H     |      3hrs      |      --       |     --      |
