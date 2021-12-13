@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="app.js"></script>
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="app.js"></script>
+    <title>Pro Basketball Rolodex | Home</title>
+  </head>
+
+  <body id="home">
+    <header>
+      <div id="navbar">
+        <h1>Pro Basketball Rolodex</h1>
+        <img
+          src="https://www.clipartmax.com/png/small/299-2993842_basketball-basketball-clipart.png"
+          alt="Basketball - Basketball Clipart @clipartmax.com"
+        />
+        <nav>
+          <ul class="nav-links">
+            <li><a href="teams.html">Teams</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="top-and-search">
+        <h2>Find Information on you any players and teams here!</h2>
+        <div class="search-submit">
+          <div class="input-div">
+            <input
+              type="text"
+              id="user-input"
+              placeholder="enter a playername or team..."
+            />
+          </div>
+          <div class="btn-div">
+            <button id="submit-btn">Search</button>
+          </div>
+        </div>
+      </section>
+      <section class="player-results">
+        <div class="playername-num"></div>
+        <div class="player-bio"></div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="https://github.com/Kevin-c-miller" target="_blank"
+        ><img src="./assets/github.png" alt="github icon"
+      /></a>
+      <a
+        href="https://www.linkedin.com/in/kevin-miller-9b26b470/"
+        target="_blank"
+        ><img src="./assets/linkedin.png" alt="linkedin icon"
+      /></a>
+    </footer>
+  </body>
 </html>

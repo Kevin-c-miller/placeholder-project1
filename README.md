@@ -27,12 +27,12 @@ This second image will be what the page looks like when the results of the user 
 #### MVP
 
 - Find and use external api
-- Get back information on pro basketball players and teams, including headshot, stats, team, position, bio.
+- Get back information on pro basketball players and teams, including their jersey number, stats, conference, divison, team, position, bio.
 - Render player/team data on page based on what the user searched.
 
 #### PostMVP
 
-- Add another API for news around the league, schedule, standings.
+- Add another API for headshots,news around the league, schedule, standings.
 - Add a favorites button so users can keep track of their favorite players/team.
 - Use local storage to save user favorites
 
@@ -57,10 +57,6 @@ You are **responsible** for scheduling time with your squad to seek approval for
 <img src= "./assets/proj1_priorityMatrix.png" alt ="image of priorty matrix for project" />
 
 ## Timeframes
-
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle. You have limited time to code all phases of the game. Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
 | Component                                    | Priority | Estimated Time | Time Invested | Actual Time |
 | -------------------------------------------- | :------: | :------------: | :-----------: | :---------: |
