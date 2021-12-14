@@ -6,7 +6,7 @@
 
 ## Project Description
 
-A place to search NBA players & teams and get relevant information about them (photo, position, stats, height, weight, team, conference, division)
+A place to search NBA players & teams and get relevant information about them (Name, position, stats, height, weight, team, conference, division)
 
 ## API and Data Sample
 
