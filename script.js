@@ -1,23 +1,38 @@
+const DOMAIN = 'https://www.balldontlie.io/api/v1/';
 const userInput = document.querySelector('#user-input');
-const submitBtn = document.querySelector('button');
+const submitBtn = document.querySelector('#submit-btn');
 const playerResults = document.querySelector('.player-results');
 const playerBio = document.querySelector('.player-bio');
-const playerStatistics = document.querySelector('.playername-num');
-const teamSearch = document.querySelector('.team');
-const DOMAIN = 'https://www.balldontlie.io/api/v1/';
+const playerStatistics = document.querySelector('.playerName-num');
+const teamSearch = document.querySelector('#team-select');
+const teamRoster = document.querySelector('.team-roster');
+const teamBtn = document.querySelector('#team-btn');
+
 const players = `${DOMAIN}players`;
 const allTeams = `${DOMAIN}teams`;
 const playerStats = `${DOMAIN}season_averages`;
-let playerNameId;
+
+// get player stats from api
+async function getPlayerStats(searchInput) {
+  try {
+    const url = `${playerStats}?player_ids[]=${searchInput}`;
+    const res = await axios.get(url);
+    const playerStatsInfo = res.data.data;
+    // console.log(playerStats);
+
+    renderPlayerStats(playerStatsInfo);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 // get player info from api
-const getPlayerInfo = async (searchInput) => {
+async function getPlayerInfo(searchInput) {
   try {
     const url = `${players}?search=${searchInput}`;
     const res = await axios.get(url);
     const playerNames = res.data.data;
     // console.log(playerNames);
-
     getPlayerStats(playerNames[0].id);
 
     renderPlayer(playerNames);
@@ -25,62 +40,69 @@ const getPlayerInfo = async (searchInput) => {
     showErrorMsg();
     console.error(error);
   }
-};
-
-//get player stats from api
-async function getPlayerStats(searchInput) {
-  try {
-    const url = `${playerStats}?player_ids[]=${searchInput}`;
-    const res = await axios.get(url);
-    const PlayerStats = res.data.data;
-    // console.log(playerStats);
-
-    renderPlayerStats(PlayerStats);
-  } catch (error) {
-    console.error(error);
-  }
 }
 
 //get team info from api
-const getTeam = async (searchInput) => {
+const getTeam = async () => {
   try {
     const url = `${allTeams}`;
     const res = await axios.get(url);
     const teams = res.data.data;
     // console.log(teams);
 
-    // renderTeam(teams);
+    setTeamsDropDown(teams);
   } catch (error) {
-    showErrorMsg();
     console.error(error);
   }
 };
+// getTeam();
 
 //team info and render to page
-function renderTeam(allTeams) {
-  allTeams.forEach((team) => {
-    // console.log(team.name);
-    if (
-      userInput.value == team.name ||
-      team.city ||
-      team.full_name ||
-      team.abbreviation
-    ) {
-      let teamName = document.createElement('h3');
-      teamName.innerText = team.full_name;
-      teamSearch.appendChild(teamName);
+function setTeamsDropDown(teams) {
+  teams.forEach((team) => {
+    // console.log(team);
 
-      let teamConf = document.createElement('h5');
-      teamConf.innerText = `Conference: ${team.conference}`;
-      teamSearch.appendChild(teamConf);
-
-      let teamDiv = document.createElement('h5');
-      teamDiv.innerText = `Division: ${team.division}`;
-      teamSearch.appendChild(teamDiv);
-    }
+    let option = document.createElement('option');
+    option.value = team.name;
+    option.textContent = team.full_name;
+    teamSearch.appendChild(option);
   });
 }
 
+//grabbing team info for display function
+async function displaySelectedTeam() {
+  try {
+    const url = `${allTeams}`;
+    const res = await axios.get(url);
+    const teams = res.data.data;
+    displayTeam(teams);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+//siaplaying team info to page
+function displayTeam(teams) {
+  teams.forEach((team) => {
+    let name = document.createElement('h3');
+    name.innerText = `Team: ${team.full_name}`;
+    teamRoster.appendChild(name);
+
+    let conference = document.createElement('p');
+    conference.innerText = `Conference: ${team.conference}`;
+    teamRoster.appendChild(conference);
+
+    let division = document.createElement('p');
+    division.innerText = `Division: ${team.division}`;
+    teamRoster.appendChild(division);
+
+    let abbrv = document.createElement('p');
+    abbrv.innerText = `Abbreviation: ${team.abbreviation}`;
+    teamRoster.appendChild(abbrv);
+  });
+}
+
+// rendering player stats to page
 function renderPlayerStats(playerStats) {
   playerStats.forEach((player) => {
     // console.log(player);
@@ -126,8 +148,6 @@ function renderPlayerStats(playerStats) {
 // player info to render to page when user searches a name
 function renderPlayer(playerNames) {
   playerNames.forEach((playerName) => {
-    // console.log(playerName);
-
     let playerFullName = document.createElement('h2');
     playerFullName.innerText = `${playerName.first_name} ${playerName.last_name}`;
     playerBio.appendChild(playerFullName);
@@ -150,15 +170,26 @@ function renderPlayer(playerNames) {
   });
 }
 
+//error message
 function showErrorMsg() {
   const errorMsg = document.createElement('h3');
-  errorMsg.innerText = 'Please enter a valid player or team name';
+  errorMsg.innerText = 'Please enter a valid player name';
   playerBio.appendChild(errorMsg);
 
   const errorImg = document.createElement('img');
   errorImg.src = 'https://media.giphy.com/media/8yfIqHvBX2C0E/giphy.gif';
   errorImg.alt = 'GIF of a missed basketball shot';
   playerBio.appendChild(errorImg);
+}
+
+//removing prior search
+function removePriorSearch() {}
+
+//checking for empty input
+function check() {
+  if (userInput.value === '') {
+    showErrorMsg();
+  }
 }
 
 // event handler function
@@ -168,7 +199,34 @@ const userSubmit = (e) => {
   console.log(searchInput, ' // user input value');
   userInput.value = '';
   getPlayerInfo(searchInput);
-  // getTeam(searchInput);
+  // check();
 };
 
 submitBtn.addEventListener('click', userSubmit);
+// teamBtn.addEventListener('click', displaySelectedTeam);
+
+////////////////////////////////////////
+// async function setRosterApiCall() {
+//   try {
+//     const url = players;
+//     const res = await axios.get(url);
+//     const allPlayers = res.data.data;
+//     displayTeamRoster(allPlayers);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// function displayTeamRoster(allPlayers) {
+//   allPlayers.forEach((player) => {
+//     if (player.team.full_name === teams.full_name) {
+//       let player = document.createElement('h5');
+//       player.innerText = player.name;
+//       teamRoster.appendChild(player);
+
+//       let position = document.createElement('p');
+//       position.innerText = player.position;
+//       teamRoster.appendChild(position);
+//     }
+//   });
+// }
