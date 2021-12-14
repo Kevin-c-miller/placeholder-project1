@@ -119,6 +119,11 @@ section #submit-btn {
   color: white;
   border-radius: 5px;
   height: 40px;
+  cursor: pointer;
+}
+
+section #submit-btn:hover {
+  opacity: 0.7;
 }
 
 /* rendered data from user input */

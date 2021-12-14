@@ -89,4 +89,4 @@ function reverse(string) {
 
 ## Change Log
 
-Use this section to document what changes were made and the reasoning behind those changes.
+Changed the background image. I changed this because I found an image that I liked more and also fit better on the screen.
