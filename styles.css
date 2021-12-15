@@ -33,6 +33,7 @@ h1 {
   padding: 0 30px;
   background: transparent;
   border-bottom: 2px solid black;
+  overflow: hidden;
 }
 
 #logo {
@@ -216,10 +217,12 @@ main .team-div {
 
 .player-results .player-bio {
   display: flex;
+  flex-direction: column;
 }
 
 .player-results .playerName-num {
   display: flex;
+  flex-direction: column;
 }
 
 .player-results .player-div,
@@ -234,6 +237,7 @@ main .team-div {
   margin: 25px auto;
   padding: 15px;
   border: 2px solid orange;
+  height: 100%;
 }
 
 /* footer */
@@ -259,6 +263,16 @@ footer img {
   height: 50px;
   width: 50px;
   padding: 5px;
+}
+
+/* error message */
+.player-bio .error-div {
+  background: lightgray;
+  border: 5px solid black;
+}
+
+.player-bio .error-div h3 {
+  text-align: center;
 }
 
 /* media queries */

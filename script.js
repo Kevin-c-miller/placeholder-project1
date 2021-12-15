@@ -5,6 +5,7 @@ const playerStats = `${DOMAIN}season_averages`;
 const userInput = document.querySelector('#user-input');
 const submitBtn = document.querySelector('#submit-btn');
 const playerResults = document.querySelector('.player-results');
+const navbar = document.querySelector('.navbar');
 const playerBio = document.querySelector('.player-bio');
 const playerStatistics = document.querySelector('.playerName-num');
 const teamSearch = document.querySelector('#team-select');
@@ -205,27 +206,30 @@ function renderPlayerStats(playerStats) {
 
 //error message
 function showErrorMsg() {
+  const errDiv = document.createElement('div');
+  errDiv.classList.add('error-div');
+  playerBio.appendChild(errDiv);
+
   const errorMsg = document.createElement('h3');
   errorMsg.innerText = 'Please enter a valid player name';
-  playerBio.appendChild(errorMsg);
+  errDiv.appendChild(errorMsg);
 
   const errorImg = document.createElement('img');
   errorImg.src = 'https://media.giphy.com/media/8yfIqHvBX2C0E/giphy.gif';
   errorImg.alt = 'GIF of a missed basketball shot';
-  playerBio.appendChild(errorImg);
+  errDiv.appendChild(errorImg);
 }
 
 //removing prior search
 function removePriorSearch() {
-  if (playerResults !== ' ') {
-    playerResults.innerText = '';
-  }
+  playerResults.innerText = '';
 }
 
 //checking for empty input
 function check() {
   if (userInput.value === '') {
     showErrorMsg();
+    return false;
   }
 }
 
@@ -234,12 +238,12 @@ const userSubmit = (e) => {
   e.preventDefault();
   let searchInput = userInput.value;
   console.log(searchInput, ' // user input value');
-  userInput.value = '';
+  // removePriorSearch();
   getPlayerInfo(searchInput);
-  // check();
+  userInput.value = '';
 };
 
-// submitBtn.addEventListener('click', userSubmit);
+submitBtn.addEventListener('click', userSubmit);
 
 // event handler for team drop down search
 async function teamDropDownSearch() {
