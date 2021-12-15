@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script defer src="script.js"></script>
+
     <title>Pro Basketball Rolodex | Home</title>
   </head>
 
@@ -45,7 +45,7 @@
               />
             </div>
             <div class="btn-div">
-              <button id="submit-btn">Search</button>
+              <button id="submit-btn" onclick="hidden()">Search</button>
             </div>
           </div>
         </section>
@@ -56,15 +56,18 @@
       </main>
     </div>
 
-    <footer>
-      <a href="https://github.com/Kevin-c-miller" target="_blank"
-        ><img src="./assets/github.png" alt="github icon"
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/kevin-miller-9b26b470/"
-        target="_blank"
-        ><img src="./assets/linkedin.png" alt="linkedin icon"
-      /></a>
+    <footer class="footer">
+      <div class="icon-div">
+        <a href="https://github.com/Kevin-c-miller" target="_blank"
+          ><img src="./assets/github.png" alt="github icon"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/kevin-miller-9b26b470/"
+          target="_blank"
+          ><img src="./assets/linkedin.png" alt="linkedin icon"
+        /></a>
+      </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>

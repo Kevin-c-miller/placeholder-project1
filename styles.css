@@ -51,6 +51,7 @@ h1 {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
+  font-size: 24px;
 }
 
 .navbar ul li {
@@ -70,7 +71,7 @@ h1 {
 
 .background-img {
   background: url('./assets/hoop.png') no-repeat center center/cover;
-  height: 95vh;
+  height: 100vh;
 }
 
 /* main */
@@ -92,6 +93,7 @@ section .main-header {
   padding: 10px;
   align-content: center;
   justify-content: flex-start;
+  font-size: 24px;
 }
 
 section #user-input {
@@ -166,9 +168,11 @@ main .team-roster {
 
 .player-results {
   display: flex;
-  justify-content: center;
   margin: 30px;
   padding: 20px;
+  justify-content: center;
+  flex-direction: row;
+  align-content: center;
 }
 
 .player-results .player-bio {
@@ -199,16 +203,89 @@ main .team-roster {
 
 /* footer */
 
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+.footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 65px;
+  width: 100%;
   background: lightgray;
 }
 
+footer .icon-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 footer img {
+  display: flex;
+
   height: 50px;
   width: 50px;
   padding: 5px;
+}
+
+/* media queries */
+@media only screen and (max-width: 1000px) {
+  #logo h1 {
+    font-size: 18px;
+  }
+
+  #logo #bball {
+    height: 30px;
+    width: 30px;
+  }
+
+  .navbar ul {
+    font-size: 16px;
+  }
+
+  section .main-header {
+    font-size: 16px;
+  }
+
+  .player-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .player-results .player-bio {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .player-results .playerName-num {
+    margin-left: 20px;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  section #user-input {
+    margin: 10px;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+  }
+  section #submit-btn {
+    width: 175px;
+    background: orange;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .player-results .player-bio,
+  .playerName-num {
+    padding: 4px;
+  }
+
+  .player-results .player-bio,
+  .playerName-num h2,
+  p {
+    font-size: 14px;
+  }
 }
