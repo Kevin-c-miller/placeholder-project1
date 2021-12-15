@@ -69,25 +69,42 @@ function setTeamsDropDown(teams) {
   });
 }
 
-//siaplaying team info to page
+//displaying team info to page
 function displayTeam(teams, teamSelection) {
-  teams.forEach((teamSelection) => {
-    let name = document.createElement('h3');
-    name.innerText = `Team: ${teamSelection.full_name}`;
-    teamRoster.appendChild(name);
+  for (let i = 0; i < teams.length; i++) {
+    if (teams[i] === teamSelection) {
+      let name = document.createElement('h3');
+      name.innerText = `Team: ${teamSelection.full_name}`;
+      teamRoster.appendChild(name);
 
-    let conference = document.createElement('p');
-    conference.innerText = `Conference: ${teamSelection.conference}`;
-    teamRoster.appendChild(conference);
+      let conference = document.createElement('p');
+      conference.innerText = `Conference: ${teamSelection.conference}`;
+      teamRoster.appendChild(conference);
 
-    let division = document.createElement('p');
-    division.innerText = `Division: ${teamSelection.division}`;
-    teamRoster.appendChild(division);
+      let division = document.createElement('p');
+      division.innerText = `Division: ${teamSelection.division}`;
+      teamRoster.appendChild(division);
 
-    let abbrv = document.createElement('p');
-    abbrv.innerText = `Abbreviation: ${teamSelection.abbreviation}`;
-    teamRoster.appendChild(abbrv);
-  });
+      let abbrv = document.createElement('p');
+      abbrv.innerText = `Abbreviation: ${teamSelection.abbreviation}`;
+      teamRoster.appendChild(abbrv);
+    }
+  }
+}
+
+// event handler for team drop down search
+async function teamDropDownSearch() {
+  try {
+    console.log(teamSearch.value);
+    const teamSelection = teamSearch.value;
+    const url = `${allTeams}`;
+    const res = await axios.get(url);
+    const teams = res.data.data;
+
+    displayTeam(teams, teamSelection);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // player info to render to page when user searches a name
@@ -101,17 +118,35 @@ function renderPlayer(playerNames) {
     playerTeam.innerText = `Team: ${playerName.team.city} ${playerName.team.name}`;
     playerBio.appendChild(playerTeam);
 
-    let playerPosition = document.createElement('p');
-    playerPosition.innerText = `Position: ${playerName.position}`;
-    playerBio.appendChild(playerPosition);
+    if (playerName.position == '') {
+      let playerPosition = document.createElement('p');
+      playerPosition.innerText = 'Position: N/A';
+      playerBio.appendChild(playerPosition);
+    } else {
+      let playerPosition = document.createElement('p');
+      playerPosition.innerText = `Position: ${playerName.position}`;
+      playerBio.appendChild(playerPosition);
+    }
 
-    let playerHeight = document.createElement('p');
-    playerHeight.innerText = `Height: ${playerName.height_feet}ft. ${playerName.height_inches}in.`;
-    playerBio.appendChild(playerHeight);
+    if (playerName.height_feet == null && playerName.height_inches == null) {
+      let playerHeight = document.createElement('p');
+      playerHeight.innerText = 'Height Not Available';
+      playerBio.appendChild(playerHeight);
+    } else {
+      let playerHeight = document.createElement('p');
+      playerHeight.innerText = `Height: ${playerName.height_feet}ft. ${playerName.height_inches}in.`;
+      playerBio.appendChild(playerHeight);
+    }
 
-    let playerWeight = document.createElement('p');
-    playerWeight.innerText = `Weight: ${playerName.weight_pounds}lbs.`;
-    playerBio.appendChild(playerWeight);
+    if (playerName.weight_pounds == null) {
+      let playerWeight = document.createElement('p');
+      playerWeight.innerText = 'Weight Not Available';
+      playerBio.appendChild(playerWeight);
+    } else {
+      let playerWeight = document.createElement('p');
+      playerWeight.innerText = `Weight: ${playerName.weight_pounds}lbs.`;
+      playerBio.appendChild(playerWeight);
+    }
   });
 }
 
@@ -198,21 +233,6 @@ const userSubmit = (e) => {
   // check();
 };
 
-// submitBtn.addEventListener('click', userSubmit);
+submitBtn.addEventListener('click', userSubmit);
 
-// event handler for team drop down search
-async function teamDropDownSearch() {
-  try {
-    console.log(teamSearch.value);
-    const teamSelection = teamSearch.value;
-    const url = `${allTeams}`;
-    const res = await axios.get(url);
-    const teams = res.data.data;
-
-    displayTeam(teams, teamSelection);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-teamBtn.addEventListener('click', teamDropDownSearch);
+// teamBtn.addEventListener('mouseup', teamDropDownSearch);
