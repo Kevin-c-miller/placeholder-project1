@@ -14,7 +14,7 @@ async function getPlayerInfo(searchInput) {
     const res = await axios.get(url);
     const playerNames = res.data.data;
     // console.log(playerNames);
-
+    // check();
     getPlayerStats(playerNames[0].id);
     renderPlayer(playerNames);
   } catch (error) {
@@ -39,6 +39,7 @@ async function getPlayerStats(searchInput) {
 
 // player info to render to page when user searches a name
 function renderPlayer(playerNames) {
+  playerBio.innerText = '';
   playerNames.forEach((playerName) => {
     // console.log(playerName);
 
@@ -66,7 +67,7 @@ function renderPlayer(playerNames) {
 
     if (playerName.height_feet == null && playerName.height_inches == null) {
       let playerHeight = document.createElement('p');
-      playerHeight.innerText = 'Height Not Available';
+      playerHeight.innerText = 'Height N/A';
       playerDiv.appendChild(playerHeight);
     } else {
       let playerHeight = document.createElement('p');
@@ -76,7 +77,7 @@ function renderPlayer(playerNames) {
 
     if (playerName.weight_pounds == null) {
       let playerWeight = document.createElement('p');
-      playerWeight.innerText = 'Weight Not Available';
+      playerWeight.innerText = 'Weight N/A';
       playerDiv.appendChild(playerWeight);
     } else {
       let playerWeight = document.createElement('p');
@@ -88,6 +89,7 @@ function renderPlayer(playerNames) {
 
 // rendering player stats to page
 function renderPlayerStats(playerStats) {
+  playerStatistics.innerText = '';
   playerStats.forEach((player) => {
     // console.log(playerStats);
 
@@ -153,25 +155,24 @@ function showErrorMsg() {
   errDiv.appendChild(errorImg);
 }
 
-//removing prior search
-function removePriorSearch() {
-  playerResults.innerText = '';
-}
-
-//checking for empty input
-function check() {
-  if (userInput.value === '') {
-    showErrorMsg();
-    return false;
-  }
-}
+// //checking for empty input
+// function check(searchInput) {
+//   if (searchInput != null && searchInput != '') {
+//     getPlayerInfo(searchInput);
+//     return;
+//   } else {
+//     showErrorMsg();
+//     return;
+//   }
+// }
 
 // event handler function for player search
 const userSubmit = (e) => {
   e.preventDefault();
   let searchInput = userInput.value;
   console.log(searchInput, ' // user input value');
-  // removePriorSearch();
+
+  // check(searchInput);
   getPlayerInfo(searchInput);
   userInput.value = '';
 };

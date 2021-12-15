@@ -104,10 +104,10 @@ section #user-input {
   border-radius: 5px;
 }
 
-section #user-input[placehoder] {
+input[type='text'] {
   text-align: center;
   padding: 5px;
-  cursor: auto;
+  cursor: default;
 }
 
 section .input-div {
