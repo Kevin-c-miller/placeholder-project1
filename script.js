@@ -71,25 +71,28 @@ function setTeamsDropDown(teams) {
 
 //displaying team info to page
 function displayTeam(teams, teamSelection) {
-  for (let i = 0; i < teams.length; i++) {
-    // if (teams[i] === teamSelection) {
-    let name = document.createElement('h3');
-    name.innerText = `Team: ${teamSelection.full_name}`;
-    teamRoster.appendChild(name);
+  teams.forEach((team) => {
+    console.log(team, teamSelection);
+    if (team.name == teamSelection) {
+      let name = document.createElement('h3');
+      name.innerText = `Team: ${team.full_name}`;
+      teamRoster.appendChild(name);
 
-    let conference = document.createElement('p');
-    conference.innerText = `Conference: ${teamSelection.conference}`;
-    teamRoster.appendChild(conference);
+      let conference = document.createElement('p');
+      conference.innerText = `Conference: ${team.conference}`;
+      teamRoster.appendChild(conference);
 
-    let division = document.createElement('p');
-    division.innerText = `Division: ${teamSelection.division}`;
-    teamRoster.appendChild(division);
+      let division = document.createElement('p');
+      division.innerText = `Division: ${team.division}`;
+      teamRoster.appendChild(division);
 
-    let abbrv = document.createElement('p');
-    abbrv.innerText = `Abbreviation: ${teamSelection.abbreviation}`;
-    teamRoster.appendChild(abbrv);
-    // }
-  }
+      let abbrv = document.createElement('p');
+      abbrv.innerText = `Abbreviation: ${team.abbreviation}`;
+      teamRoster.appendChild(abbrv);
+    } else {
+      console.log('invalid');
+    }
+  });
 }
 
 // player info to render to page when user searches a name
@@ -229,6 +232,7 @@ async function teamDropDownSearch() {
     const url = `${allTeams}`;
     const res = await axios.get(url);
     const teams = res.data.data;
+    console.log(teams);
 
     displayTeam(teams, teamSelection);
   } catch (error) {
