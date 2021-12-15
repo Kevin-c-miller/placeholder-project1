@@ -8,7 +8,7 @@ const playerResults = document.querySelector('.player-results');
 const playerBio = document.querySelector('.player-bio');
 const playerStatistics = document.querySelector('.playerName-num');
 const teamSearch = document.querySelector('#team-select');
-const teamRoster = document.querySelector('.team-roster');
+const teamInfo = document.querySelector('.team-info');
 const teamBtn = document.querySelector('#team-btn');
 
 async function getPlayerInfo(searchInput) {
@@ -72,25 +72,33 @@ function setTeamsDropDown(teams) {
 //displaying team info to page
 function displayTeam(teams, teamSelection) {
   teams.forEach((team) => {
-    console.log(team, teamSelection);
+    // console.log(team, teamSelection);
     if (team.name == teamSelection) {
+      let teamDiv = document.createElement('div');
+      teamDiv.classList.add('team-div');
+      teamInfo.appendChild(teamDiv);
+
       let name = document.createElement('h3');
       name.innerText = `Team: ${team.full_name}`;
-      teamRoster.appendChild(name);
+      teamDiv.appendChild(name);
+
+      let city = document.createElement('p');
+      city.innerText = `City: ${team.city}`;
+      teamDiv.appendChild(city);
 
       let conference = document.createElement('p');
       conference.innerText = `Conference: ${team.conference}`;
-      teamRoster.appendChild(conference);
+      teamDiv.appendChild(conference);
 
       let division = document.createElement('p');
       division.innerText = `Division: ${team.division}`;
-      teamRoster.appendChild(division);
+      teamDiv.appendChild(division);
 
       let abbrv = document.createElement('p');
       abbrv.innerText = `Abbreviation: ${team.abbreviation}`;
-      teamRoster.appendChild(abbrv);
+      teamDiv.appendChild(abbrv);
     } else {
-      console.log('invalid');
+      // console.log('invalid');
     }
   });
 }
@@ -99,42 +107,47 @@ function displayTeam(teams, teamSelection) {
 function renderPlayer(playerNames) {
   playerNames.forEach((playerName) => {
     // console.log(playerName);
+
+    let playerDiv = document.createElement('div');
+    playerDiv.classList.add('player-div');
+    playerBio.appendChild(playerDiv);
+
     let playerFullName = document.createElement('h2');
     playerFullName.innerText = `${playerName.first_name} ${playerName.last_name}`;
-    playerBio.appendChild(playerFullName);
+    playerDiv.appendChild(playerFullName);
 
     let playerTeam = document.createElement('p');
     playerTeam.innerText = `${playerName.team.city} ${playerName.team.name}`;
-    playerBio.appendChild(playerTeam);
+    playerDiv.appendChild(playerTeam);
 
     if (playerName.position == '') {
       let playerPosition = document.createElement('p');
       playerPosition.innerText = 'Position: N/A';
-      playerBio.appendChild(playerPosition);
+      playerDiv.appendChild(playerPosition);
     } else {
       let playerPosition = document.createElement('p');
       playerPosition.innerText = `Position: ${playerName.position}`;
-      playerBio.appendChild(playerPosition);
+      playerDiv.appendChild(playerPosition);
     }
 
     if (playerName.height_feet == null && playerName.height_inches == null) {
       let playerHeight = document.createElement('p');
       playerHeight.innerText = 'Height Not Available';
-      playerBio.appendChild(playerHeight);
+      playerDiv.appendChild(playerHeight);
     } else {
       let playerHeight = document.createElement('p');
       playerHeight.innerText = `Height: ${playerName.height_feet}ft. ${playerName.height_inches}in.`;
-      playerBio.appendChild(playerHeight);
+      playerDiv.appendChild(playerHeight);
     }
 
     if (playerName.weight_pounds == null) {
       let playerWeight = document.createElement('p');
       playerWeight.innerText = 'Weight Not Available';
-      playerBio.appendChild(playerWeight);
+      playerDiv.appendChild(playerWeight);
     } else {
       let playerWeight = document.createElement('p');
       playerWeight.innerText = `Weight: ${playerName.weight_pounds}lbs.`;
-      playerBio.appendChild(playerWeight);
+      playerDiv.appendChild(playerWeight);
     }
   });
 }
@@ -142,47 +155,51 @@ function renderPlayer(playerNames) {
 // rendering player stats to page
 function renderPlayerStats(playerStats) {
   playerStats.forEach((player) => {
-    console.log(playerStats);
+    // console.log(playerStats);
+
+    let statsDiv = document.createElement('div');
+    statsDiv.classList.add('stats-div');
+    playerStatistics.appendChild(statsDiv);
 
     let header = document.createElement('h2');
     header.innerText = 'Season Stats';
-    playerStatistics.appendChild(header);
+    statsDiv.appendChild(header);
 
     let gamesPlayed = document.createElement('p');
     gamesPlayed.innerText = `GP: ${player.games_played}`;
-    playerStatistics.appendChild(gamesPlayed);
+    statsDiv.appendChild(gamesPlayed);
 
     let min = document.createElement('p');
     min.innerText = `Min: ${player.min}`;
-    playerStatistics.appendChild(min);
+    statsDiv.appendChild(min);
 
     let pts = document.createElement('p');
     pts.innerText = `PPG: ${player.pts}`;
-    playerStatistics.appendChild(pts);
+    statsDiv.appendChild(pts);
 
     let reb = document.createElement('p');
     reb.innerText = `Reb: ${player.reb}`;
-    playerStatistics.appendChild(reb);
+    statsDiv.appendChild(reb);
 
     let blocks = document.createElement('p');
     blocks.innerText = `Blks: ${player.blk}`;
-    playerStatistics.appendChild(blocks);
+    statsDiv.appendChild(blocks);
 
     let assists = document.createElement('p');
     assists.innerText = `Asts: ${player.ast}`;
-    playerStatistics.appendChild(assists);
+    statsDiv.appendChild(assists);
 
     let steals = document.createElement('p');
     steals.innerText = `Stls: ${player.stl}`;
-    playerStatistics.appendChild(steals);
+    statsDiv.appendChild(steals);
 
     let fgPercent = document.createElement('p');
     fgPercent.innerText = `FG%: ${player.fg_pct}`;
-    playerStatistics.appendChild(fgPercent);
+    statsDiv.appendChild(fgPercent);
 
     let turnOvers = document.createElement('p');
     turnOvers.innerText = `TO: ${player.turnover}`;
-    playerStatistics.appendChild(turnOvers);
+    statsDiv.appendChild(turnOvers);
   });
 }
 
@@ -232,7 +249,7 @@ async function teamDropDownSearch() {
     const url = `${allTeams}`;
     const res = await axios.get(url);
     const teams = res.data.data;
-    console.log(teams);
+    // console.log(teams);
 
     displayTeam(teams, teamSelection);
   } catch (error) {

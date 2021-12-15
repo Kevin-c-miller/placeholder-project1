@@ -147,7 +147,7 @@ main #team-select {
 }
 
 main #team-btn {
-  padding: 8px;
+  padding: 12px;
   width: 100px;
   background: rgb(249, 162, 0);
   border-radius: 5px;
@@ -164,6 +164,45 @@ main .team-roster {
   justify-content: center;
 }
 
+main .team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto 10px;
+  padding: 20px;
+}
+
+main #team-select {
+  width: 225px;
+  height: 25px;
+  padding: 0;
+  text-align: center;
+  background: orange;
+  color: white;
+}
+
+main #team-btn {
+  cursor: pointer;
+  color: white;
+}
+
+main .team-info {
+  display: flex;
+  flex-direction: column;
+  margin: 5px auto;
+  padding: 20px;
+  width: 25%;
+}
+
+main .team-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: lightgray;
+  width: 100%;
+  margin: 5px;
+  border: 2px solid orange;
+}
 /* rendered data from user input */
 
 .player-results {
@@ -177,28 +216,24 @@ main .team-roster {
 
 .player-results .player-bio {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: rgb(7, 138, 27);
-  font-weight: bold;
-  margin: 25px 0 25px 20px;
-  padding: 15px;
-  border: 3px solid black;
-  background: lightgray;
 }
 
 .player-results .playerName-num {
   display: flex;
+}
+
+.player-results .player-div,
+.stats-div {
+  display: flex;
   flex-direction: column;
+  background: lightgray;
   justify-content: center;
   align-items: flex-start;
-  color: rgb(7, 138, 27);
+  color: black;
   font-weight: bold;
-  margin: 25px 20px 25px 0;
+  margin: 25px auto;
   padding: 15px;
-  border: 3px solid black;
-  background: lightgray;
+  border: 2px solid orange;
 }
 
 /* footer */
@@ -229,7 +264,7 @@ footer img {
 /* media queries */
 @media only screen and (max-width: 1000px) {
   #logo h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   #logo #bball {
@@ -245,20 +280,8 @@ footer img {
     font-size: 16px;
   }
 
-  .player-results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .player-results .player-bio {
-    margin-right: 20px;
-    margin-bottom: 0;
-  }
-
-  .player-results .playerName-num {
-    margin-left: 20px;
-    margin-top: 0;
+  main .team-info {
+    width: 45%;
   }
 }
 
@@ -278,8 +301,9 @@ footer img {
     cursor: pointer;
   }
 
-  .player-results .player-bio,
-  .playerName-num {
+  .player-results {
+    display: flex;
+    flex-direction: column;
     padding: 4px;
   }
 
@@ -287,5 +311,54 @@ footer img {
   .playerName-num h2,
   p {
     font-size: 14px;
+  }
+
+  .player-results .player-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    width: 35%;
+  }
+
+  .player-results .stats-div {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    width: 35%;
+  }
+
+  main .team-info {
+    margin-top: 100px;
+  }
+
+  main .team-container {
+    margin-top: 100px;
+  }
+
+  main .team-info .team-div {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #logo h1 {
+    font-size: 15px;
+  }
+  #logo #bball {
+    height: 20px;
+    width: 20px;
+  }
+
+  .navbar ul {
+    font-size: 14px;
+  }
+
+  main .team-info {
+    margin-top: 100px;
+  }
+
+  main .team-container {
+    margin-top: 100px;
   }
 }
