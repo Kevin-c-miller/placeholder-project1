@@ -1,4 +1,7 @@
 const DOMAIN = 'https://www.balldontlie.io/api/v1/';
+const players = `${DOMAIN}players`;
+const allTeams = `${DOMAIN}teams`;
+const playerStats = `${DOMAIN}season_averages`;
 const userInput = document.querySelector('#user-input');
 const submitBtn = document.querySelector('#submit-btn');
 const playerResults = document.querySelector('.player-results');
@@ -8,9 +11,20 @@ const teamSearch = document.querySelector('#team-select');
 const teamRoster = document.querySelector('.team-roster');
 const teamBtn = document.querySelector('#team-btn');
 
-const players = `${DOMAIN}players`;
-const allTeams = `${DOMAIN}teams`;
-const playerStats = `${DOMAIN}season_averages`;
+async function getPlayerInfo(searchInput) {
+  try {
+    const url = `${players}?search=${searchInput}`;
+    const res = await axios.get(url);
+    const playerNames = res.data.data;
+    // console.log(playerNames);
+
+    getPlayerStats(playerNames[0].id);
+    renderPlayer(playerNames);
+  } catch (error) {
+    showErrorMsg();
+    console.error(error);
+  }
+}
 
 // get player stats from api
 async function getPlayerStats(searchInput) {
@@ -27,20 +41,6 @@ async function getPlayerStats(searchInput) {
 }
 
 // get player info from api
-async function getPlayerInfo(searchInput) {
-  try {
-    const url = `${players}?search=${searchInput}`;
-    const res = await axios.get(url);
-    const playerNames = res.data.data;
-    // console.log(playerNames);
-    getPlayerStats(playerNames[0].id);
-
-    renderPlayer(playerNames);
-  } catch (error) {
-    showErrorMsg();
-    console.error(error);
-  }
-}
 
 //get team info from api
 const getTeam = async () => {
@@ -55,7 +55,7 @@ const getTeam = async () => {
     console.error(error);
   }
 };
-// getTeam();
+getTeam();
 
 //team info and render to page
 function setTeamsDropDown(teams) {
@@ -69,79 +69,24 @@ function setTeamsDropDown(teams) {
   });
 }
 
-//grabbing team info for display function
-async function displaySelectedTeam() {
-  try {
-    const url = `${allTeams}`;
-    const res = await axios.get(url);
-    const teams = res.data.data;
-    displayTeam(teams);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 //siaplaying team info to page
-function displayTeam(teams) {
-  teams.forEach((team) => {
+function displayTeam(teams, teamSelection) {
+  teams.forEach((teamSelection) => {
     let name = document.createElement('h3');
-    name.innerText = `Team: ${team.full_name}`;
+    name.innerText = `Team: ${teamSelection.full_name}`;
     teamRoster.appendChild(name);
 
     let conference = document.createElement('p');
-    conference.innerText = `Conference: ${team.conference}`;
+    conference.innerText = `Conference: ${teamSelection.conference}`;
     teamRoster.appendChild(conference);
 
     let division = document.createElement('p');
-    division.innerText = `Division: ${team.division}`;
+    division.innerText = `Division: ${teamSelection.division}`;
     teamRoster.appendChild(division);
 
     let abbrv = document.createElement('p');
-    abbrv.innerText = `Abbreviation: ${team.abbreviation}`;
+    abbrv.innerText = `Abbreviation: ${teamSelection.abbreviation}`;
     teamRoster.appendChild(abbrv);
-  });
-}
-
-// rendering player stats to page
-function renderPlayerStats(playerStats) {
-  playerStats.forEach((player) => {
-    // console.log(player);
-
-    let gamesPlayed = document.createElement('p');
-    gamesPlayed.innerText = `Games Played: ${player.games_played}`;
-    playerStatistics.appendChild(gamesPlayed);
-
-    let min = document.createElement('p');
-    min.innerText = `Minutes: ${player.min}`;
-    playerStatistics.appendChild(min);
-
-    let pts = document.createElement('p');
-    pts.innerText = `Points: ${player.pts}`;
-    playerStatistics.appendChild(pts);
-
-    let reb = document.createElement('p');
-    reb.innerText = `Rebounds: ${player.reb}`;
-    playerStatistics.appendChild(reb);
-
-    let blocks = document.createElement('p');
-    blocks.innerText = `Blocks: ${player.blk}`;
-    playerStatistics.appendChild(blocks);
-
-    let assists = document.createElement('p');
-    assists.innerText = `Assists: ${player.ast}`;
-    playerStatistics.appendChild(assists);
-
-    let steals = document.createElement('p');
-    steals.innerText = `Steals: ${player.stl}`;
-    playerStatistics.appendChild(steals);
-
-    let fgPercent = document.createElement('p');
-    fgPercent.innerText = `FG%: ${player.fg_pct}`;
-    playerStatistics.appendChild(fgPercent);
-
-    let turnOvers = document.createElement('p');
-    turnOvers.innerText = `Turnovers: ${player.turnover}`;
-    playerStatistics.appendChild(turnOvers);
   });
 }
 
@@ -170,6 +115,53 @@ function renderPlayer(playerNames) {
   });
 }
 
+// rendering player stats to page
+function renderPlayerStats(playerStats) {
+  playerStats.forEach((player) => {
+    // console.log(player);
+
+    let header = document.createElement('h2');
+    header.innerText = 'Season Stats';
+    playerStatistics.appendChild(header);
+
+    let gamesPlayed = document.createElement('p');
+    gamesPlayed.innerText = `GP: ${player.games_played}`;
+    playerStatistics.appendChild(gamesPlayed);
+
+    let min = document.createElement('p');
+    min.innerText = `Min: ${player.min}`;
+    playerStatistics.appendChild(min);
+
+    let pts = document.createElement('p');
+    pts.innerText = `PPG: ${player.pts}`;
+    playerStatistics.appendChild(pts);
+
+    let reb = document.createElement('p');
+    reb.innerText = `Reb: ${player.reb}`;
+    playerStatistics.appendChild(reb);
+
+    let blocks = document.createElement('p');
+    blocks.innerText = `Blks: ${player.blk}`;
+    playerStatistics.appendChild(blocks);
+
+    let assists = document.createElement('p');
+    assists.innerText = `Asts: ${player.ast}`;
+    playerStatistics.appendChild(assists);
+
+    let steals = document.createElement('p');
+    steals.innerText = `Stls: ${player.stl}`;
+    playerStatistics.appendChild(steals);
+
+    let fgPercent = document.createElement('p');
+    fgPercent.innerText = `FG%: ${player.fg_pct}`;
+    playerStatistics.appendChild(fgPercent);
+
+    let turnOvers = document.createElement('p');
+    turnOvers.innerText = `TO: ${player.turnover}`;
+    playerStatistics.appendChild(turnOvers);
+  });
+}
+
 //error message
 function showErrorMsg() {
   const errorMsg = document.createElement('h3');
@@ -183,7 +175,11 @@ function showErrorMsg() {
 }
 
 //removing prior search
-function removePriorSearch() {}
+function removePriorSearch() {
+  if (playerResults !== ' ') {
+    playerResults.innerText = '';
+  }
+}
 
 //checking for empty input
 function check() {
@@ -192,7 +188,7 @@ function check() {
   }
 }
 
-// event handler function
+// event handler function for player search
 const userSubmit = (e) => {
   e.preventDefault();
   let searchInput = userInput.value;
@@ -202,31 +198,21 @@ const userSubmit = (e) => {
   // check();
 };
 
-submitBtn.addEventListener('click', userSubmit);
-// teamBtn.addEventListener('click', displaySelectedTeam);
+// submitBtn.addEventListener('click', userSubmit);
 
-////////////////////////////////////////
-// async function setRosterApiCall() {
-//   try {
-//     const url = players;
-//     const res = await axios.get(url);
-//     const allPlayers = res.data.data;
-//     displayTeamRoster(allPlayers);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+// event handler for team drop down search
+async function teamDropDownSearch() {
+  try {
+    console.log(teamSearch.value);
+    const teamSelection = teamSearch.value;
+    const url = `${allTeams}`;
+    const res = await axios.get(url);
+    const teams = res.data.data;
 
-// function displayTeamRoster(allPlayers) {
-//   allPlayers.forEach((player) => {
-//     if (player.team.full_name === teams.full_name) {
-//       let player = document.createElement('h5');
-//       player.innerText = player.name;
-//       teamRoster.appendChild(player);
+    displayTeam(teams, teamSelection);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-//       let position = document.createElement('p');
-//       position.innerText = player.position;
-//       teamRoster.appendChild(position);
-//     }
-//   });
-// }
+teamBtn.addEventListener('click', teamDropDownSearch);
