@@ -33,6 +33,7 @@ function setTeamsDropDown(teams) {
 
 //displaying team info to page
 function displayTeam(teams, teamSelection) {
+  teamInfo.innerText = '';
   teams.forEach((team) => {
     // console.log(team, teamSelection);
     if (team.name == teamSelection) {

@@ -141,6 +141,9 @@ function renderPlayerStats(playerStats) {
 
 //error message
 function showErrorMsg() {
+  playerBio.innerText = '';
+  playerStatistics.innerText = '';
+
   const errDiv = document.createElement('div');
   errDiv.classList.add('error-div');
   playerBio.appendChild(errDiv);
@@ -155,16 +158,16 @@ function showErrorMsg() {
   errDiv.appendChild(errorImg);
 }
 
-// //checking for empty input
-// function check(searchInput) {
-//   if (searchInput != null && searchInput != '') {
-//     getPlayerInfo(searchInput);
-//     return;
-//   } else {
-//     showErrorMsg();
-//     return;
-//   }
-// }
+//checking for empty input
+function check(searchInput) {
+  if (searchInput != null && searchInput != '') {
+    getPlayerInfo(searchInput);
+    return;
+  } else {
+    showErrorMsg();
+    return;
+  }
+}
 
 // event handler function for player search
 const userSubmit = (e) => {
@@ -172,8 +175,8 @@ const userSubmit = (e) => {
   let searchInput = userInput.value;
   console.log(searchInput, ' // user input value');
 
-  // check(searchInput);
-  getPlayerInfo(searchInput);
+  check(searchInput);
+
   userInput.value = '';
 };
 

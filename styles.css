@@ -19,6 +19,7 @@ h1 {
   font-weight: bold;
   line-height: 1.2;
   margin-right: 10px;
+  border: 2px solid orange;
 }
 
 /* navbar */
@@ -32,7 +33,7 @@ h1 {
   top: 0px;
   padding: 0 30px;
   background: transparent;
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid black;
   overflow: hidden;
 }
 
@@ -67,7 +68,7 @@ h1 {
 
 .navbar a:hover {
   opacity: 0.8;
-  border-bottom: 2px solid black;
+  border-bottom: 5px solid rgb(184, 122, 6);
 }
 
 .background-img {
@@ -244,11 +245,16 @@ main .team-div {
 
 .footer {
   position: fixed;
+  display: flex;
   left: 0px;
   bottom: 0px;
   height: 65px;
   width: 100%;
   background: lightgray;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-top: 3px solid black;
 }
 
 footer .icon-div {
