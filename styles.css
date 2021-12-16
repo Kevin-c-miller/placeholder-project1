@@ -107,7 +107,8 @@ section .main-header {
   padding: 10px;
   align-content: center;
   justify-content: flex-start;
-  font-size: 24px;
+  font-size: 28px;
+  font-family: 'Road Rage', sans-serif;
 }
 
 section #user-input {
@@ -156,7 +157,7 @@ main .team-header {
 
 main .team-header h2 {
   font-size: 32px;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Road Rage', sans-serif;
   font-weight: bold;
   text-decoration: underline;
 }
