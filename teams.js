@@ -86,6 +86,9 @@ async function teamDropDownSearch() {
 
 teamBtn.addEventListener('mouseup', teamDropDownSearch);
 
+///////////////
+
+///////////////
 function teamLogos(team) {
   let logoDiv = document.createElement('div');
   logoDiv.classList.add('logos');
