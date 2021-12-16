@@ -49,7 +49,7 @@ You are **responsible** for scheduling time with your squad to seek approval for
 | Dec 13    | Core Application Structure (HTML, CSS, etc.)       | Complete   |
 | Dec 14    | Pseudocode / actual code                           | Complete   |
 | Dec 15    | Initial Clickable Model                            | Complete   |
-| Dec 16    | MVP                                                | Incomplete |
+| Dec 16    | MVP                                                | Complete   |
 | Dec 17    | Presentations                                      | Incomplete |
 
 ## Priority Matrix
@@ -60,33 +60,33 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 | Component                                    | Priority | Estimated Time | Time Invested | Actual Time |
 | -------------------------------------------- | :------: | :------------: | :-----------: | :---------: |
-| HTML set up                                  |    H     |      2hrs      |      --       |     --      |
-| CSS set up                                   |    H     |      2hrs      |      --       |     --      |
-| JS initial set up (grabbing html elements)   |    H     |      1hrs      |      --       |     --      |
-| Connect API using Axios                      |    H     |      4hrs      |      --       |     --      |
-| Implement JS event handler(s)                |    H     |      3hrs      |      --       |     --      |
-| JS functions - userinput, player info, teams |    H     |      4hrs      |      --       |     --      |
-| Use API to display player info to page       |    H     |      4hrs      |      --       |     --      |
-| Use API to display team rosters              |    H     |      3hrs      |      --       |     --      |
-| Style page using CSS/flex                    |    H     |      4hrs      |      --       |     --      |
-| Implement responsive design                  |    H     |      3hrs      |      --       |     --      |
-| Add styling finishing touches                |    H     |      3hrs      |      --       |     --      |
-| Link icons/images on page                    |    H     |      1hrs      |      --       |     --      |
-| Debug program                                |    H     |      3hrs      |      --       |     --      |
-| Clean up code                                |    H     |      3hrs      |      --       |     --      |
-| Deploy site                                  |    H     |      1hrs      |      --       |     --      |
-| Total                                        |    H     |     41hrs      |      --       |     --      |
+| HTML set up                                  |    H     |      2hrs      |     2hrs      |    2hrs     |
+| CSS set up                                   |    H     |      2hrs      |     2hrs      |    2hrs     |
+| JS initial set up (grabbing html elements)   |    H     |      1hrs      |     1hrs      |    1hrs     |
+| Connect API using Axios                      |    H     |      4hrs      |     4hrs      |    4hrs     |
+| Implement JS event handler(s)                |    H     |      3hrs      |     4hrs      |    4hrs     |
+| JS functions - userinput, player info, teams |    H     |      4hrs      |     5hrs      |    5hrs     |
+| Use API to display player info to page       |    H     |      4hrs      |     4hrs      |    4hrs     |
+| Use API to display team rosters              |    H     |      3hrs      |     5hrs      |    5hrs     |
+| Style page using CSS/flex                    |    H     |      4hrs      |     5hrs      |    5hrs     |
+| Implement responsive design                  |    H     |      3hrs      |     3hrs      |    3hrs     |
+| Add styling finishing touches                |    H     |      3hrs      |     3hrs      |    3hrs     |
+| Link icons/images on page                    |    H     |      1hrs      |     1hrs      |    1hrs     |
+| Debug program                                |    H     |      3hrs      |     4hrs      |    4hrs     |
+| Clean up code                                |    H     |      3hrs      |     1hrs      |    1hrs     |
+| Deploy site                                  |    H     |      1hrs      |     .5hr      |    .5hr     |
+| Total                                        |    H     |     41hrs      |    44.5hrs    |   44.5hrs   |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+<img src="./assets/codesnippet.png" alt="codesnippet" />
 
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
-```
+I chose this snippet because it gave me the most grief. I probably reviewed every lesson we had and more stackoverflow pages that I can remember but after hours of messing around with it, this is how it finally worked correctly.
+
+.
 
 ## Change Log
 
-Changed the background image. I changed this because I found an image that I liked more and also fit better on the screen.
+1. Changed the background image. I changed this because I found an image that I liked more and also fit better on the screen.
+2. PostMVP - I wasnt able to find an API for team logos, so I grabbed them from giphy and manually implemented them.
+3. Player photos - I still plan on finding an api and adding them when a user searches a player.
