@@ -76,6 +76,8 @@ body {
 
 .navbar ul li {
   margin: 0 10px;
+  font-family: 'Road Rage', sans-serif;
+  font-size: 28px;
 }
 
 .navbar ul li:hover {
@@ -107,8 +109,8 @@ section .main-header {
   padding: 10px;
   align-content: center;
   justify-content: flex-start;
-  font-size: 28px;
   font-family: 'Road Rage', sans-serif;
+  font-size: 34px;
 }
 
 section #user-input {
@@ -156,7 +158,7 @@ main .team-header {
 }
 
 main .team-header h2 {
-  font-size: 32px;
+  font-size: 34px;
   font-family: 'Road Rage', sans-serif;
   font-weight: bold;
   text-decoration: underline;
