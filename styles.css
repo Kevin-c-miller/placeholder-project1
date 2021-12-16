@@ -566,13 +566,13 @@ footer img:hover {
   main .team-info {
     margin: 5px auto 2px;
     width: 50%;
-    height: 150px;
+    height: 200px;
   }
 
   main .team-info .team-div {
     width: 100%;
     font-size: 14px;
-    height: 75%;
+    height: 100%;
     padding: 10px;
   }
 
