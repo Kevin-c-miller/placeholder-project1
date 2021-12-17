@@ -42,15 +42,15 @@ This schedule will be used to keep track of your progress throughout the week an
 
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
-| Day       | Deliverable                                        | Status     |
-| --------- | -------------------------------------------------- | ---------- |
-| Dec 10-12 | Prompt / Wireframes / Priority Matrix / Timeframes | Complete   |
-| Dec 13    | Project Approval                                   | Complete   |
-| Dec 13    | Core Application Structure (HTML, CSS, etc.)       | Complete   |
-| Dec 14    | Pseudocode / actual code                           | Complete   |
-| Dec 15    | Initial Clickable Model                            | Complete   |
-| Dec 16    | MVP                                                | Complete   |
-| Dec 17    | Presentations                                      | Incomplete |
+| Day       | Deliverable                                        | Status   |
+| --------- | -------------------------------------------------- | -------- |
+| Dec 10-12 | Prompt / Wireframes / Priority Matrix / Timeframes | Complete |
+| Dec 13    | Project Approval                                   | Complete |
+| Dec 13    | Core Application Structure (HTML, CSS, etc.)       | Complete |
+| Dec 14    | Pseudocode / actual code                           | Complete |
+| Dec 15    | Initial Clickable Model                            | Complete |
+| Dec 16    | MVP                                                | Complete |
+| Dec 17    | Presentations                                      | Complete |
 
 ## Priority Matrix
 

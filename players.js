@@ -13,8 +13,7 @@ async function getPlayerInfo(searchInput) {
     const url = `${players}?search=${searchInput}`;
     const res = await axios.get(url);
     const playerNames = res.data.data;
-    // console.log(playerNames);
-    // check();
+
     getPlayerStats(playerNames[0].id);
     renderPlayer(playerNames);
   } catch (error) {
