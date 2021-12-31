@@ -282,7 +282,7 @@ main .logos img {
 }
 
 .player-results .player-div,
-.stats-div {
+.stats-div, .headshot-div {
   display: flex;
   flex-direction: column;
   background: lightgray;
@@ -296,6 +296,7 @@ main .logos img {
   height: 100%;
   border-radius: 10px;
 }
+
 
 /* footer */
 

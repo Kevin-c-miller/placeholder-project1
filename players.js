@@ -36,6 +36,50 @@ async function getPlayerStats(searchInput) {
   }
 }
 
+//get player headshots
+async function getPlayerHeadshots (searchInput) {
+   //reverse search input for headshot API call
+  //  console.log(searchInput);
+   const reverseName = searchInput.split(' ');
+   [reverseName[0], reverseName[1]] = [reverseName[1], reverseName[0]];
+   const lastName = reverseName[0];
+   const firstName = reverseName[1];
+  //  console.log(lastName, '/', firstName);
+
+  try{
+    // API for headshots
+    const playerHeadshots = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
+    console.log(playerHeadshots);
+
+    showPlayerHeadshots(playerHeadshots);
+  } catch (error){
+    console.error(error);
+  }
+}
+
+function showPlayerHeadshots(playerHeadshots) {
+
+  let headshotDiv = document.createElement('div');
+  headshotDiv.classList.add('headshot-div');
+  playerResults.appendChild(headshotDiv);
+
+  let img = document.createElement('img');
+    img.src = playerHeadshots;
+    img.alt = 'headshot';
+    headshotDiv.appendChild(img);
+
+  // if(playerResults.hasChildNodes()) {
+  //   playerResults.removeChild(playerResults[0]);
+  // } else {
+  //   let img = document.createElement('img');
+  //   img.src = playerHeadshots;
+  //   img.alt = 'headshot';
+  //   headshotDiv.appendChild(img);
+  // }
+}
+
+
+
 // player info to render to page when user searches a name
 function renderPlayer(playerNames) {
   playerBio.innerText = '';
@@ -161,6 +205,7 @@ function showErrorMsg() {
 function check(searchInput) {
   if (searchInput != null && searchInput != '') {
     getPlayerInfo(searchInput);
+    getPlayerHeadshots(searchInput)
     return;
   } else {
     showErrorMsg();
@@ -172,8 +217,7 @@ function check(searchInput) {
 const userSubmit = (e) => {
   e.preventDefault();
   let searchInput = userInput.value;
-  console.log(searchInput, ' // user input value');
-
+  console.log(typeof searchInput, searchInput, ' // user input value');
   check(searchInput);
 
   userInput.value = '';
