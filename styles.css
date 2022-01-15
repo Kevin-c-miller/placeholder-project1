@@ -7,13 +7,20 @@
   /* border: 1px solid black; */
 }
 
+html {
+  background: url('./assets/hoop.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body {
+  min-height: 100vh !important;
+  position: relative;
   font-family: sans-serif;
-  background: #fff;
   color: #333;
   line-height: 1.6;
 }
-
 /* navbar */
 
 .navbar {
@@ -32,6 +39,7 @@ body {
 #logo {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 #logo h1 {
@@ -53,7 +61,7 @@ body {
 }
 
 #bball {
-  display: inline;
+  display: flex;
   height: 70px;
   width: 70px;
 }
@@ -86,11 +94,13 @@ body {
 }
 
 .background-img {
-  background: url('./assets/hoop.png') no-repeat center center/cover;
-  height: 100vh;
 }
 
 /* main */
+
+main {
+  min-height: 100vh;
+}
 
 section .search-submit {
   display: flex;
@@ -145,7 +155,7 @@ section #submit-btn:hover {
 /* team.html page main section */
 
 main {
-  height: 85vh;
+  height: 100%;
 }
 
 main .team-header {
@@ -262,8 +272,9 @@ main .logos img {
 
 /* rendered data from user input */
 
-.player-results {
+body main .player-results {
   display: flex;
+  flex-direction: row;
   margin: 30px;
   padding: 20px;
   justify-content: center;
@@ -274,15 +285,18 @@ main .logos img {
 .player-results .player-bio {
   display: flex;
   flex-direction: column;
+  margin: 25px 5px;
 }
 
-.player-results .playerName-num {
+.player-results .playerName-num .player-image {
   display: flex;
   flex-direction: column;
+  margin: 25px 5px;
 }
 
 .player-results .player-div,
-.stats-div, .headshot-div {
+.stats-div,
+.headshot-div {
   display: flex;
   flex-direction: column;
   background: lightgray;
@@ -290,13 +304,15 @@ main .logos img {
   align-items: flex-start;
   color: black;
   font-weight: bold;
-  margin: 25px auto;
+  margin: 25px 5px;
   padding: 15px;
   border: 2px solid orange;
   height: 100%;
   border-radius: 10px;
 }
 
+.headshot-div {
+}
 
 /* footer */
 

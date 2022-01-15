@@ -10,20 +10,15 @@ const getTeam = async () => {
     const url = `${allTeams}`;
     const res = await axios.get(url);
     const teams = res.data.data;
-    // console.log(teams);
 
     setTeamsDropDown(teams);
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 };
 getTeam();
 
 //team info and render to page
 function setTeamsDropDown(teams) {
   teams.forEach((team) => {
-    // console.log(team);
-
     let option = document.createElement('option');
     option.value = team.name;
     option.textContent = team.full_name;
@@ -35,7 +30,6 @@ function setTeamsDropDown(teams) {
 function displayTeam(teams, teamSelection) {
   teamInfo.innerText = '';
   teams.forEach((team) => {
-    // console.log(team, teamSelection);
     if (team.name == teamSelection) {
       let teamDiv = document.createElement('div');
       teamDiv.classList.add('team-div');
@@ -62,8 +56,6 @@ function displayTeam(teams, teamSelection) {
       teamDiv.appendChild(abbrv);
 
       teamLogos(team);
-    } else {
-      // console.log('invalid');
     }
   });
 }

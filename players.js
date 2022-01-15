@@ -5,6 +5,7 @@ const userInput = document.querySelector('#user-input');
 const submitBtn = document.querySelector('#submit-btn');
 const playerResults = document.querySelector('.player-results');
 const playerBio = document.querySelector('.player-bio');
+const playerImage = document.querySelector('.player-image');
 const playerStatistics = document.querySelector('.playerName-num');
 
 // get player info from api
@@ -18,7 +19,6 @@ async function getPlayerInfo(searchInput) {
     renderPlayer(playerNames);
   } catch (error) {
     showErrorMsg();
-    console.error(error);
   }
 }
 
@@ -28,7 +28,6 @@ async function getPlayerStats(searchInput) {
     const url = `${playerStats}?player_ids[]=${searchInput}`;
     const res = await axios.get(url);
     const playerStatsInfo = res.data.data;
-    // console.log(playerStats);
 
     renderPlayerStats(playerStatsInfo);
   } catch (error) {
@@ -37,55 +36,41 @@ async function getPlayerStats(searchInput) {
 }
 
 //get player headshots
-async function getPlayerHeadshots (searchInput) {
-   //reverse search input for headshot API call
-  //  console.log(searchInput);
-   const reverseName = searchInput.split(' ');
-   [reverseName[0], reverseName[1]] = [reverseName[1], reverseName[0]];
-   const lastName = reverseName[0];
-   const firstName = reverseName[1];
-  //  console.log(lastName, '/', firstName);
+async function getPlayerHeadshots(searchInput) {
+  //reverse search input for headshot API call
+  const reverseName = searchInput.split(' ');
+  [reverseName[0], reverseName[1]] = [reverseName[1], reverseName[0]];
+  const lastName = reverseName[0];
+  const firstName = reverseName[1];
 
-  try{
+  try {
     // API for headshots
     const playerHeadshots = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
-    console.log(playerHeadshots);
 
     showPlayerHeadshots(playerHeadshots);
-  } catch (error){
+  } catch (error) {
     console.error(error);
   }
 }
 
+// player headshots
 function showPlayerHeadshots(playerHeadshots) {
+  playerImage.innerHTML = '';
 
   let headshotDiv = document.createElement('div');
   headshotDiv.classList.add('headshot-div');
-  playerResults.appendChild(headshotDiv);
+  playerImage.appendChild(headshotDiv);
 
   let img = document.createElement('img');
-    img.src = playerHeadshots;
-    img.alt = 'headshot';
-    headshotDiv.appendChild(img);
-
-  // if(playerResults.hasChildNodes()) {
-  //   playerResults.removeChild(playerResults[0]);
-  // } else {
-  //   let img = document.createElement('img');
-  //   img.src = playerHeadshots;
-  //   img.alt = 'headshot';
-  //   headshotDiv.appendChild(img);
-  // }
+  img.src = playerHeadshots;
+  img.alt = 'headshot';
+  headshotDiv.appendChild(img);
 }
-
-
 
 // player info to render to page when user searches a name
 function renderPlayer(playerNames) {
   playerBio.innerText = '';
   playerNames.forEach((playerName) => {
-    // console.log(playerName);
-
     let playerDiv = document.createElement('div');
     playerDiv.classList.add('player-div');
     playerBio.appendChild(playerDiv);
@@ -134,8 +119,6 @@ function renderPlayer(playerNames) {
 function renderPlayerStats(playerStats) {
   playerStatistics.innerText = '';
   playerStats.forEach((player) => {
-    // console.log(playerStats);
-
     let statsDiv = document.createElement('div');
     statsDiv.classList.add('stats-div');
     playerStatistics.appendChild(statsDiv);
@@ -201,11 +184,13 @@ function showErrorMsg() {
   errDiv.appendChild(errorImg);
 }
 
+//
+
 //checking for empty input
 function check(searchInput) {
   if (searchInput != null && searchInput != '') {
     getPlayerInfo(searchInput);
-    getPlayerHeadshots(searchInput)
+    getPlayerHeadshots(searchInput);
     return;
   } else {
     showErrorMsg();
