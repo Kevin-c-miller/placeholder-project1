@@ -21,7 +21,6 @@ async function getPlayerInfo(searchInput) {
     showErrorMsg();
   }
 }
-
 // get player stats from api
 async function getPlayerStats(searchInput) {
   try {
@@ -70,49 +69,58 @@ function showPlayerHeadshots(playerHeadshots) {
 // player info to render to page when user searches a name
 function renderPlayer(playerNames) {
   playerBio.innerText = '';
-  playerNames.forEach((playerName) => {
-    let playerDiv = document.createElement('div');
-    playerDiv.classList.add('player-div');
-    playerBio.appendChild(playerDiv);
 
-    let playerFullName = document.createElement('h2');
-    playerFullName.innerText = `${playerName.first_name} ${playerName.last_name}`;
-    playerDiv.appendChild(playerFullName);
+  // checking for 1 result
+  if (playerNames.length !== 1) {
+    narrowSearchMsg();
+    playerImage.style.display = 'none';
+  } else {
+    playerNames.forEach((playerName) => {
+      playerImage.style.display = 'flex';
 
-    let playerTeam = document.createElement('p');
-    playerTeam.innerText = `${playerName.team.city} ${playerName.team.name}`;
-    playerDiv.appendChild(playerTeam);
+      let playerDiv = document.createElement('div');
+      playerDiv.classList.add('player-div');
+      playerBio.appendChild(playerDiv);
 
-    if (playerName.position == '') {
-      let playerPosition = document.createElement('p');
-      playerPosition.innerText = 'Position: N/A';
-      playerDiv.appendChild(playerPosition);
-    } else {
-      let playerPosition = document.createElement('p');
-      playerPosition.innerText = `Position: ${playerName.position}`;
-      playerDiv.appendChild(playerPosition);
-    }
+      let playerFullName = document.createElement('h2');
+      playerFullName.innerText = `${playerName.first_name} ${playerName.last_name}`;
+      playerDiv.appendChild(playerFullName);
 
-    if (playerName.height_feet == null && playerName.height_inches == null) {
-      let playerHeight = document.createElement('p');
-      playerHeight.innerText = 'Height N/A';
-      playerDiv.appendChild(playerHeight);
-    } else {
-      let playerHeight = document.createElement('p');
-      playerHeight.innerText = `Height: ${playerName.height_feet}ft. ${playerName.height_inches}in.`;
-      playerDiv.appendChild(playerHeight);
-    }
+      let playerTeam = document.createElement('p');
+      playerTeam.innerText = `${playerName.team.city} ${playerName.team.name}`;
+      playerDiv.appendChild(playerTeam);
 
-    if (playerName.weight_pounds == null) {
-      let playerWeight = document.createElement('p');
-      playerWeight.innerText = 'Weight N/A';
-      playerDiv.appendChild(playerWeight);
-    } else {
-      let playerWeight = document.createElement('p');
-      playerWeight.innerText = `Weight: ${playerName.weight_pounds}lbs.`;
-      playerDiv.appendChild(playerWeight);
-    }
-  });
+      if (playerName.position == '') {
+        let playerPosition = document.createElement('p');
+        playerPosition.innerText = 'Position: N/A';
+        playerDiv.appendChild(playerPosition);
+      } else {
+        let playerPosition = document.createElement('p');
+        playerPosition.innerText = `Position: ${playerName.position}`;
+        playerDiv.appendChild(playerPosition);
+      }
+
+      if (playerName.height_feet == null && playerName.height_inches == null) {
+        let playerHeight = document.createElement('p');
+        playerHeight.innerText = 'Height N/A';
+        playerDiv.appendChild(playerHeight);
+      } else {
+        let playerHeight = document.createElement('p');
+        playerHeight.innerText = `Height: ${playerName.height_feet}ft. ${playerName.height_inches}in.`;
+        playerDiv.appendChild(playerHeight);
+      }
+
+      if (playerName.weight_pounds == null) {
+        let playerWeight = document.createElement('p');
+        playerWeight.innerText = 'Weight N/A';
+        playerDiv.appendChild(playerWeight);
+      } else {
+        let playerWeight = document.createElement('p');
+        playerWeight.innerText = `Weight: ${playerName.weight_pounds}lbs.`;
+        playerDiv.appendChild(playerWeight);
+      }
+    });
+  }
 }
 
 // rendering player stats to page
@@ -184,7 +192,20 @@ function showErrorMsg() {
   errDiv.appendChild(errorImg);
 }
 
-//
+// narrow search message
+function narrowSearchMsg() {
+  playerBio.innerText = '';
+  playerStatistics.innerText = '';
+
+  const narrowSearchDiv = document.createElement('div');
+  narrowSearchDiv.classList.add('narrow-search');
+  playerBio.appendChild(narrowSearchDiv);
+
+  const narrowMsg = document.createElement('h3');
+  narrowMsg.innerText = 'Please enter a valid first AND last name';
+  narrowMsg.style.color = 'red';
+  narrowSearchDiv.appendChild(narrowMsg);
+}
 
 //checking for empty input
 function check(searchInput) {
@@ -202,7 +223,7 @@ function check(searchInput) {
 const userSubmit = (e) => {
   e.preventDefault();
   let searchInput = userInput.value;
-  console.log(typeof searchInput, searchInput, ' // user input value');
+
   check(searchInput);
 
   userInput.value = '';

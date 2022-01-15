@@ -311,9 +311,6 @@ body main .player-results {
   border-radius: 10px;
 }
 
-.headshot-div {
-}
-
 /* footer */
 
 .footer {
@@ -356,6 +353,14 @@ footer img:hover {
 
 .player-bio .error-div h3 {
   text-align: center;
+}
+
+.narrow-search {
+  background: lightgray;
+  font-weight: bold;
+  padding: 20px;
+  border: 3px solid black;
+  border-radius: 5px;
 }
 
 /* media queries */
