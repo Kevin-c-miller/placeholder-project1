@@ -177,6 +177,7 @@ function renderPlayerStats(playerStats) {
 function showErrorMsg() {
   playerBio.innerText = '';
   playerStatistics.innerText = '';
+  playerImage.style.display = 'none';
 
   const errDiv = document.createElement('div');
   errDiv.classList.add('error-div');
