@@ -10,17 +10,17 @@ A place to search NBA players & teams and get relevant information about them (N
 
 ## API and Data Sample
 
-<img src="./assets/api-prj1.png" alt="screenshot of working api response" />
+<img src="./assets/images/api-prj1.png" alt="screenshot of working api response" />
 
 ## Wireframes
 
 This image below will be what the the user sees initially. They will be able to input a player name or team and get results based on their search.
 
-<img src= "./assets/unit1Project_nbaRoledex_.png" alt="image of what program will look like once completed" />
+<img src= "./assets/images/unit1Project_nbaRoledex_.png" alt="image of what program will look like once completed" />
 
 This second image will be what the page looks like when the results of the user search are returned.
 
-<img src= "./assets/unit1Project_nbaRoledex_2.png" alt="screenshot of what the program will look like when a user search is returned" />
+<img src= "./assets/images/unit1Project_nbaRoledex_2.png" alt="screenshot of what the program will look like when a user search is returned" />
 
 ### MVP/PostMVP
 
@@ -54,7 +54,7 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Priority Matrix
 
-<img src= "./assets/proj1_priorityMatrix.png" alt ="image of priorty matrix for project" />
+<img src= "./assets/images/proj1_priorityMatrix.png" alt ="image of priorty matrix for project" />
 
 ## Timeframes
 

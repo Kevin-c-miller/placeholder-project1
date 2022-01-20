@@ -80,7 +80,6 @@ teamBtn.addEventListener('mouseup', teamDropDownSearch);
 
 ///////////////
 
-///////////////
 function teamLogos(team) {
   let logoDiv = document.createElement('div');
   logoDiv.classList.add('logos');
@@ -128,8 +127,7 @@ function teamLogos(team) {
     logoDiv.appendChild(nuggets);
   } else if (team.full_name === 'Detroit Pistons') {
     let pistons = document.createElement('img');
-    pistons.src =
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Pistons_logo17.svg/1200px-Pistons_logo17.svg.png';
+    pistons.src = 'https://media.giphy.com/media/iOe3RHu5SUV8QKhfOO/giphy.gif';
     pistons.alt = 'pistons logo';
     logoDiv.appendChild(pistons);
   } else if (team.full_name === 'Golden State Warriors') {

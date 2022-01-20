@@ -45,8 +45,22 @@ async function getPlayerHeadshots(searchInput) {
   try {
     // API for headshots
     const playerHeadshots = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
+    const url = `https://nba-players.herokuapp.com/players/${lastName}/${firstName}`;
+    const res = await axios.get(url);
 
-    showPlayerHeadshots(playerHeadshots);
+    // stock image for players with no headshot from API
+    let noImage = './assets/images/no-image-found.png';
+
+    if (
+      res.data ===
+      'Sorry, that player was not found. Please check the spelling.'
+    ) {
+      showPlayerHeadshots(noImage);
+    } else {
+      showPlayerHeadshots(playerHeadshots);
+    }
+
+    //
   } catch (error) {
     console.error(error);
   }

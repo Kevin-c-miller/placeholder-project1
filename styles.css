@@ -8,7 +8,7 @@
 }
 
 html {
-  background: url('./assets/hoop.png') no-repeat center center fixed;
+  background: url('./assets/images/hoop.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -299,7 +299,7 @@ body main .player-results {
 .headshot-div {
   display: flex;
   flex-direction: column;
-  background: lightgray;
+  background: white;
   justify-content: center;
   align-items: flex-start;
   color: black;
@@ -309,6 +309,19 @@ body main .player-results {
   border: 2px solid orange;
   height: 100%;
   border-radius: 10px;
+}
+
+.headshot-div {
+  border-radius: 20%;
+  padding: 0px !important;
+}
+
+.headshot-div img {
+  padding: 0 auto;
+  margin: 0 auto;
+  height: 250px;
+  width: 275px;
+  border-radius: 40px;
 }
 
 /* footer */
