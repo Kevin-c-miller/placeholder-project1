@@ -60,6 +60,11 @@ function displayTeam(teams, teamSelection) {
   });
 }
 
+// hiding serch result div until a search occurs
+window.onload = function () {
+  teamInfo.style.display = 'none';
+};
+
 // event handler for team drop down search
 async function teamDropDownSearch() {
   try {
@@ -70,6 +75,7 @@ async function teamDropDownSearch() {
     const teams = res.data.data;
     // console.log(teams);
 
+    teamInfo.style.display = 'flex';
     displayTeam(teams, teamSelection);
   } catch (error) {
     console.error(error);
@@ -78,8 +84,9 @@ async function teamDropDownSearch() {
 
 teamBtn.addEventListener('mouseup', teamDropDownSearch);
 
-///////////////
+/////////////////////////////////////////////////////////////
 
+// here until I figure a better way to display images
 function teamLogos(team) {
   let logoDiv = document.createElement('div');
   logoDiv.classList.add('logos');
