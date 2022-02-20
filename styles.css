@@ -275,7 +275,6 @@ main .logos img {
 }
 
 /* rendered data from user input */
-
 body main .player-results {
   display: flex;
   margin: 30px;
@@ -310,7 +309,7 @@ body main .player-results {
   width: 100% !important;
 }
 
-.card-boy .player-bio,
+.card-body .player-bio,
 .playerName-num {
   width: 50%;
 }
@@ -326,8 +325,6 @@ body main .player-results {
   justify-content: center;
   align-items: center;
   width: 45%;
-}
-.player-image {
 }
 
 .headshot-div {
@@ -522,18 +519,67 @@ footer img:hover {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
   #logo h1 {
-    font-size: 2rem;
+    font-size: 20px;
   }
   #logo #bball {
-    height: 40px;
-    width: 40px;
+    height: 20px;
+    width: 20px;
   }
 
-  .navbar ul {
-    font-size: 1.5rem;
+  .navbar ul li {
+    font-size: 20px;
     padding: 4px;
+  }
+
+  .main-header h2 {
+    font-size: 20px;
+  }
+
+  .input-div #user-input {
+    width: 200px;
+    height: 45px;
+  }
+
+  input[type='text'] {
+    font-size: 16px;
+  }
+
+  .player-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-body {
+    border-top: 2px solid #000;
+    border-left: transparent;
+    padding: 20px;
+  }
+
+  .player-image .headshot-div {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .player-bio .player-div h2,
+  .playerName-num .stats-div h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .player-bio .player-div p,
+  .playerName-num .stats-div p {
+    font-size: 16px;
   }
 
   main .team-container {
@@ -541,7 +587,7 @@ footer img:hover {
   }
 
   main .team-header h2 {
-    font-size: 1.5rem;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: underline;
     margin: 5px;
@@ -584,5 +630,40 @@ footer img:hover {
     height: 30px;
     width: 30px;
     margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+  }
+  #logo h1 {
+    font-size: 16px;
+    margin: 0;
+  }
+  #logo #bball {
+    height: 0;
+    width: 0;
+  }
+
+  .nav-links {
+    margin: 0;
+  }
+
+  .navbar ul {
+    margin: 0;
+  }
+
+  .navbar ul li {
+    font-size: 16px;
+    /* padding: 4px; */
   }
 }
