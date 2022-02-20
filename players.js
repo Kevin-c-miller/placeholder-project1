@@ -227,12 +227,18 @@ function check(searchInput) {
   if (searchInput != null && searchInput != '') {
     getPlayerInfo(searchInput);
     getPlayerHeadshots(searchInput);
+    playerResults.style.display = 'flex';
     return;
   } else {
     showErrorMsg();
     return;
   }
 }
+
+// window onload
+window.onload = function () {
+  playerResults.style.display = 'none';
+};
 
 // event handler function for player search
 const userSubmit = (e) => {
