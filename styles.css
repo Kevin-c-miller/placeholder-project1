@@ -564,6 +564,7 @@ footer img:hover {
     border-top: 2px solid #000;
     border-left: transparent;
     padding: 20px;
+    color: #777;
   }
 
   .player-image .headshot-div {
