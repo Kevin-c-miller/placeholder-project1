@@ -1,8 +1,6 @@
-# Project Overview
+# Pro Basketball Rolodex
+Student Project for General Assembly 
 
-## Project Name
-
-<h3>Pro Basketball Rolodex</h3>
 
 ## Project Description
 
