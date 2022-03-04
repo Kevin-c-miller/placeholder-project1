@@ -101,6 +101,13 @@ main {
   min-height: 100vh;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 section .search-submit {
   display: flex;
   flex-direction: column;
@@ -240,6 +247,15 @@ main .team-info {
   width: 80%;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(198, 198, 198, 1) 67%,
+    rgba(125, 125, 125, 1) 100%
+  );
+  border-radius: 30px !important;
 }
 
 main .team-div {
@@ -250,8 +266,7 @@ main .team-div {
   width: 50%;
   margin: auto;
   padding: 25px;
-  border: 5px solid black;
-  border-radius: 10px;
+  border-right: 1px solid #000;
 }
 
 main .logos {
@@ -265,7 +280,6 @@ main .logos {
 }
 
 main .logos img {
-  border: 5px solid black;
   border-radius: 50%;
   padding: 15px;
   height: 230px;
@@ -282,16 +296,22 @@ body main .player-results {
   justify-content: center;
   flex-direction: row;
   align-content: center;
-  border: 2px solid #000;
 }
 
 .card {
   flex-direction: row !important;
   border: transparent !important;
   width: 100% !important;
-  background-color: transparent !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(198, 198, 198, 1) 67%,
+    rgba(125, 125, 125, 1) 100%
+  );
+  border-radius: 30px !important;
+  max-width: 1200px;
 }
 
 .card-container {
@@ -299,11 +319,12 @@ body main .player-results {
   flex-direction: row !important;
   justify-content: center;
   align-items: center;
+  margin: 0 2rem !important;
 }
 
 .card-body {
   display: flex !important;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   border-left: 2px solid #000;
   width: 100% !important;
@@ -320,7 +341,8 @@ body main .player-results {
 }
 
 .card-container .player-image,
-.player-bio {
+.player-bio,
+.playerName-num {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -564,7 +586,7 @@ footer img:hover {
     border-top: 2px solid #000;
     border-left: transparent;
     padding: 20px;
-    color: #777;
+    color: rgb(0, 0, 0);
   }
 
   .player-image .headshot-div {
